@@ -1,12 +1,18 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import charactersReducer from '../reducers/characters.reducer'
-import thunk from 'redux-thunk'
+import charactersReducer from '../reducers/characters.reducer';
+import comicsReducer from '../reducers/comics.reducer';
+import eventsReducer from '../reducers/events.reducer';
+import seriesReducer from '../reducers/series.reducer';
+import thunk from 'redux-thunk';
 
 
 export default () => {
   const store = createStore(
     combineReducers({
-      characters: charactersReducer
+      characters: charactersReducer,
+      comics: comicsReducer,
+      events: eventsReducer,
+      series: seriesReducer
     }),
     compose(
       applyMiddleware(thunk),

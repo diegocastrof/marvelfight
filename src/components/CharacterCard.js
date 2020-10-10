@@ -15,12 +15,10 @@ const CharacterCard = ({ id, name, description, thumbnail }) => {
                 <p>{description}</p>
             </div>
             <div className="card-action">
-                <Link to={`/character/${id}`}>More about ${ name }</Link>
+                <Link to={`/character/${id}`}>More about { name }</Link>
             </div>
         </div>
     )
 }
-
-
 
 export default CharacterCard

@@ -1,24 +1,19 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { getCharacters } from '../actions/characters.actions'
+import { getCharacters, unmountCharacters } from '../actions/characters.actions';
 
 import CharacterCard from './CharacterCard'
-// import ExpenseListFilter from './ExpenseListFilter'
-// import ExpenseSummary from './ExpenseSummary'
-// import filteredExpenses from '../selectors/expenses'
-
 
 class CharacterList extends Component {
     componentDidMount() {
         this.props.getCharacters()
     }
     componentWillUnmount() {
-        // tengo que hacer dispatch pa vaciar arreglo de characters
+        this.props.unmountCharacters()
     }
     render() {
-        console.log('this.prosps', this.props)
         return (
             <div className="container">
                 <h1 className="text-center">Discover our fighters</h1>
@@ -44,7 +39,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getCharacters: bindActionCreators(getCharacters, dispatch)
+        getCharacters: bindActionCreators(getCharacters, dispatch),
+        unmountCharacters: bindActionCreators(unmountCharacters, dispatch)
     }
 }
 

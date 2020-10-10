@@ -3,10 +3,17 @@ const charactersDefault = [];
 const characterReducer =  (state = charactersDefault, action) => {
     switch(action.type) {
         case 'FETCH_CHARACTERS':
-            // console.log(action.characters.data.results)
             return [
                 ...state,
                 ...action.characters
+            ]
+        case 'UNMOUNT_CHARACTERS':
+            return state.characters = []
+        
+        case 'FETCH_CHARACTER':
+            return [
+                ...state,
+                action.characterInfo
             ]
         default:
             return state
