@@ -1,0 +1,25 @@
+// Turns font size REM equals to 10px
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+button {
+  cursor: pointer;
+  &:disabled {
+    cursor: default;
+  }
+}
+
+@media(max-width: 400px) {
+  html {
+    font-size: 50%;
+  } 
+}
+
+.navlink-active {
+  font-weight: bold;
+}
