@@ -1,31 +1,43 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import { getCharacters, unmountCharacters } from '../actions/characters.actions';
 import { setTextFilter } from '../actions/filters.actions';
 
 class SearchFilter extends Component {
-  handleSearch = () =>{
+  handleSearch = (e) =>{
+    e.preventDefault()
     this.props.dispatch(unmountCharacters())
     this.props.dispatch(getCharacters(this.props.filters))
+    this.props.dispatch(setTextFilter(''))
   }
   render() {
     return (
-      <div>
-        <input 
-          type="text" 
-          value={ this.props.filters.text }
-          placeholder='Search your Marvel Hero!'
-          onChange={ (e) => {
-            this.props.dispatch(setTextFilter(e.target.value))
-          }}
-        />
-        <button
-          onClick={ this.handleSearch }
-        >
-          Search
-        </button>
+      <div className="search-bar">
+        <div className="row">
+          <form className="col s12">
+            <div className="container">
+              <div className="input-fiel col s10">
+                <input 
+                  type="text" 
+                  value={ this.props.filters.text }
+                  placeholder='Search your Marvel Hero!'
+                  onChange={ (e) => {
+                    this.props.dispatch(setTextFilter(e.target.value))
+                  }}
+                />
+              </div>
+              <div className="col s2">
+                <button
+                  className="waves-effect waves-light btn-small red lighten-2"
+                  onClick={ this.handleSearch }
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     )
   }
@@ -39,3 +51,6 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(SearchFilter)
+
+
+

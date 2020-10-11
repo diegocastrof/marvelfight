@@ -1,25 +1,25 @@
 import React, { Component } from 'react';
-import CharacterCard from '../components/CharacterCard'
 
 class ItemsView extends Component {
   
   render() {
+    const size = 5;
+    const visibleItems = this.props.items.slice(0, size);
+    const { title } = this.props;
     return (
       <div>
-        <h3>{ this.props.title }</h3>
+        <h3>{ title }</h3>
         <div className="row">
           {
-            this.props.items.length === 0 ? <p> No {this.props.title.toLowerCase()} found...</p> :
-            this.props.items.map(({ id, title, description, thumbnail }) => (
-                <div key={ id } className="col s2">
+            visibleItems.length === 0 ? <p> No { title.toLowerCase() } found...</p> :
+            visibleItems.map(({ id, title, thumbnail }) => (
+                <div key={ id } className="col s3">
                   <div className="card">
                     <div className="card-image">
-                        <img src={ `${thumbnail.path}.${thumbnail.extension}` } alt=""/>
-                        <span className="card-title">{ title }</span>
-
+                        <img src={ `${thumbnail.path}.${thumbnail.extension}` } alt="Character picture"/>
                     </div>
                     <div className="card-content">
-                        <p>{ description }</p>
+                        <h4> { title }</h4>
                     </div>
                   </div>
                 </div>

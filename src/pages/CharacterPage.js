@@ -30,9 +30,9 @@ class CharacterPage extends Component {
       const img_url = `${thumbnail.path}.${thumbnail.extension}`
       return (
         <div className="container">
-            <h1>{ name }</h1>
-            <img src={img_url} alt="Character picture"/>
-            
+            <h1 className="center-align red-text text-lighten-3">{ name }</h1>
+            <img src={img_url} className="materialboxed center-align" width="500" alt="Character picture"/>
+                
             <ItemsView title={'Comics'} items={ this.props.comics } />
             <ItemsView title={'Events'} items={ this.props.events } />
             <ItemsView title={'Series'} items={ this.props.series } />
