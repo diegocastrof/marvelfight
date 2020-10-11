@@ -4,36 +4,42 @@ import { bindActionCreators } from 'redux';
 
 import { getCharacters, unmountCharacters } from '../actions/characters.actions';
 
-import CharacterCard from './CharacterCard'
+import CharacterCard from './CharacterCard';
+import Loading from './Loading';
 
 class CharacterList extends Component {
     componentDidMount() {
-        this.props.getCharacters()
+      this.props.getCharacters(this.props.filters)
     }
     componentWillUnmount() {
-        this.props.unmountCharacters()
+      this.props.unmountCharacters()
     }
     render() {
-        return (
+        if (this.props.characters) {
+          return (
             <div className="container">
-                <h1 className="text-center">Discover our fighters</h1>
-                <div className="row">
-                    {
-                        this.props.characters.map((character, index) => (
-                            <div key={character.id} className="col s3">
-                                <CharacterCard key={character.id} {...character}/>
-                            </div>
-                        ))
-                    }
-                </div>
+              <h1 className="center-align red-text text-lighten-3">Discover our fighters</h1>
+              <div className="row">
+                {
+                  this.props.characters.map((character, index) => (
+                    <div key={character.id} className="col s4">
+                      <CharacterCard key={character.id} {...character}/>
+                    </div>
+                  ))
+                }
+              </div>
             </div>
-        )
+          )
+        } else return (
+          <Loading />
+        )    
     }
 }
 
 const mapStateToProps = (state) => {
   return {
-    characters: state.characters
+    characters: state.characters,
+    filters: state.filters
   }
 }
 

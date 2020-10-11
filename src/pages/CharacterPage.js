@@ -61,7 +61,7 @@ const mapDispatchToProps = (dispatch) => {
       getEventsById: bindActionCreators(getEventsById, dispatch),
       unmountEvents: bindActionCreators(unmountEvents, dispatch),
       getSeriesById: bindActionCreators(getSeriesById, dispatch),
-      unmountSeries: bindActionCreators(unmountEvents, dispatch)
+      unmountSeries: bindActionCreators(unmountSeries, dispatch)
   }
 }
 
