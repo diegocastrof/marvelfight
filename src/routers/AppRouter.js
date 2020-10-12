@@ -5,11 +5,13 @@ import DashboardPage from '../pages/DashboardPage';
 import CharacterPage from '../pages/CharacterPage'
 import FightPage from '../pages/FightPage';
 import NotFoundPage from '../pages/NotFoundPage';
-import Header from '../components/Header'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const AppRouter = () => (
   <BrowserRouter>
-    <div>
+    <div className="page-container">
+    <div className="content-wrap">
       <Header></Header>
       <Switch>
         <Route path="/" component={DashboardPage} exact={true}></Route>
@@ -17,6 +19,8 @@ const AppRouter = () => (
         <Route path="/fight" component={FightPage}></Route>
         <Route component={NotFoundPage}></Route>
       </Switch>
+    </div>
+    <Footer></Footer>
     </div>
   </BrowserRouter>
 )

@@ -2,7 +2,8 @@ const fightDefault = {
   fightNum: 0,
   isFetching: false,
   finishFetching: false,
-  winners: []
+  winners: [],
+  losers: []
 }
 
 const fightReducer = ((state = fightDefault, action) => {
@@ -25,7 +26,18 @@ const fightReducer = ((state = fightDefault, action) => {
     case 'SET_WINNER':
       return {
         ...state,
-        winners: [...state.winners, action.id]
+        winners: [...state.winners, action.winner]
+      }
+    case 'SET_LOSER':
+      return {
+        ...state,
+        losers: [...state.losers, action.loser]
+      }
+    case 'RESET_RESULTS':
+      return {
+        ...state,
+        winners: [],
+        losers: []
       }
     default:
       return state

@@ -14,7 +14,16 @@ export const setFinishFetching = (bool) => ({
   finishFetching: bool
 })
 
-export const setWinner = (id) => ({
+export const setWinner = (winner) => ({
   type: 'SET_WINNER',
-  id
+  winner
+})
+
+export const setLoser = (loser) => ({
+  type: 'SET_LOSER',
+  loser
+})
+
+export const resetResults = () => ({
+  type: 'RESET_RESULTS'
 })

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getRandomCharacters, unmountCharacters } from '../actions/characters.actions';
-import { setFightNumberFilter, setIsFetching } from '../actions/fight.actions';
+import { setFightNumberFilter, setFinishFetching, setIsFetching } from '../actions/fight.actions';
 import { setTextFilter, setWinnerFilter, setLoserFilter, sortByComics, sortByEvents, sortBySeries } from '../actions/filters.actions'
 
 class FightResultsFilter extends Component {
@@ -11,6 +11,7 @@ class FightResultsFilter extends Component {
   }
   componentWillUnmount() {
     this.props.dispatch(setTextFilter())
+    this.props.dispatch(setFinishFetching(false))
   }
   render() {
     return (

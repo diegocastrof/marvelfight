@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { setFightNumberFilter, setIsFetching } from '../actions/fight.actions';
+import { setFightNumberFilter, setIsFetching, setFinishFetching } from '../actions/fight.actions';
 import { unmountCharacters } from '../actions/characters.actions';
 
 import Loading from './Loading';
@@ -15,6 +15,7 @@ class FightList extends Component {
     }
     handleReset = () => {
       this.props.setIsFetching(false)
+      this.props.setFinishFetching(false)
       this.props.setFightNumberFilter(0)
       this.props.unmountCharacters()
     }
@@ -28,12 +29,20 @@ class FightList extends Component {
         }, []);
         return (
           <div className="container">
+            <h2 className="center-align red-text text-lighten-3">Combats of Evening</h2>
             {
               fightSuite.map((fight, index) => (
                 <MatchCard key={ index } fighters={ fight } /> 
               ))
             }
-            <button onClick={ this.handleReset }>Try again</button>
+            <button 
+              className="waves-effect waves-light btn-small red lighten-2"
+              onClick={ this.handleReset }
+            >
+              Battle Again!
+            </button>
+            <br/>
+            <br/>
           </div>
         )} else if (fight.isFetching) {
           return (
@@ -57,6 +66,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
       setIsFetching: bindActionCreators(setIsFetching, dispatch),
+      setFinishFetching: bindActionCreators(setFinishFetching, dispatch),
       setFightNumberFilter: bindActionCreators(setFightNumberFilter, dispatch),
       unmountCharacters: bindActionCreators(unmountCharacters, dispatch)
   }

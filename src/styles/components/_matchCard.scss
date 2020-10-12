@@ -1,0 +1,32 @@
+.card.horizontal .card-image img .circle {
+	min-width: 100%;
+	// min-height: 100%;
+}
+
+.card .card-action {
+	padding: 1rem 0 0 2rem;
+}
+
+.card.horizontal .card-stacked .card-content {
+	padding: 1rem 2rem;
+}
+
+.card .card-content {
+	padding: 1rem 2rem;
+}
+
+.vs_container {
+	width: 50%;
+	margin: 0 auto;
+	position: relative;
+	transform: translateY(5rem);
+	.vs_img {
+		display: block;
+		width: 100%;
+	}
+}
+
+.match-result {
+	margin: 0;
+	margin-bottom: 1rem;
+}
