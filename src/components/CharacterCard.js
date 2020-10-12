@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const CharacterCard = ({ id, name, description, thumbnail }) => {
-    const img_url = `${thumbnail.path}.${thumbnail.extension}`;
+    let img_url = `${thumbnail.path}.${thumbnail.extension}`;
+    img_url = img_url.replace('http://', 'https://')
     const isLongDescription = description.length > 100;
     return (
         <div className="card">

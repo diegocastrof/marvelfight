@@ -1,6 +1,7 @@
 const fightDefault = {
   fightNum: 0,
   isFetching: false,
+  finishFetching: false,
   winners: []
 }
 
@@ -11,10 +12,15 @@ const fightReducer = ((state = fightDefault, action) => {
         ...state,
         fightNum: action.fightNum
       }
-    case 'SET_FETCHING_STATE':
+    case 'SET_IS_FETCHING':
       return {
         ...state,
         isFetching: action.isFetching
+      }
+    case 'SET_FINISH_FETCHING':
+      return {
+        ...state,
+        finishFetching: action.finishFetching
       }
     case 'SET_WINNER':
       return {

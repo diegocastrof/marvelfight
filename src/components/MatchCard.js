@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { setWinner } from '../actions/fight.actions'
+import { setFinishFetching, setWinner } from '../actions/fight.actions'
 
 class MatchCard extends Component {
   state = {
@@ -10,6 +10,7 @@ class MatchCard extends Component {
     const winnerIndex = Math.round(Math.random());
     const winnerId = this.props.fighters[winnerIndex].id;
     this.props.dispatch(setWinner(winnerId))
+    this.props.dispatch(setFinishFetching(true))
     this.setState(() => ({ winnerId }))
   }
   render() {
@@ -18,9 +19,9 @@ class MatchCard extends Component {
     const winnerId = this.state.winnerId;
     return (
       <div>
-        <div> { fighterOne.id === winnerId ? `${fighterOne.name} is the Winner i weas`: fighterOne.name } </div>
+        <div> { fighterOne.id === winnerId ? `${fighterOne.name} is the Winner` : fighterOne.name } </div>
   
-        <div> { fighterTwo.id === winnerId ? `${fighterTwo.name} is the Winner i weas`: fighterTwo.name } </div>
+        <div> { fighterTwo.id === winnerId ? `${fighterTwo.name} is the Winner` : fighterTwo.name } </div>
         <br/>
       </div>
     )

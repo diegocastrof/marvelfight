@@ -4,8 +4,14 @@ export const setFightNumberFilter = (fightNum = 0) => ({
 })
 
 export const setIsFetching = (bool) => ({
-  type: 'SET_FETCHING_STATE',
+  type: 'SET_IS_FETCHING',
   isFetching: bool
+})
+
+
+export const setFinishFetching = (bool) => ({
+  type: 'SET_FINISH_FETCHING',
+  finishFetching: bool
 })
 
 export const setWinner = (id) => ({

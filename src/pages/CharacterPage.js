@@ -27,7 +27,8 @@ class CharacterPage extends Component {
   render() {
     if (this.props.characterInfo) {
       const { name, thumbnail, comics, events, series } = this.props.characterInfo
-      const img_url = `${thumbnail.path}.${thumbnail.extension}`
+      let img_url = `${thumbnail.path}.${thumbnail.extension}`
+      img_url = img_url.replace('http://', 'https://')
       return (
         <div className="container">
             <h1 className="center-align red-text text-lighten-3">{ name }</h1>

@@ -21,6 +21,7 @@ class FightFilter extends Component {
     return (
       <div className="search-bar">
         <div className="row">
+        <h2 className="center-align red-text text-lighten-3">How many fights are we having this evening?</h2>
           <form className="col s12">
             <div className="container">
               <div className="input-fiel col s10">

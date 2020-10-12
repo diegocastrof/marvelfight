@@ -2,11 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import FightFilter from '../components/FightFilter';
 import FightList from '../components/FightList';
+import FightResultFilter from '../components/FightResultsFilter'
 
 const FightPage = (props) => (
   <div>
-    <h2 className="center-align red-text text-lighten-3">How many fights are we having this evening?</h2>
-    { !props.fight.isFetching && <FightFilter />}
+    { !props.fight.isFetching && <FightFilter /> }
+    { props.fight.finishFetching &&  <FightResultFilter /> }
     <FightList />
   </div>
 )

@@ -16,7 +16,7 @@ class ItemsView extends Component {
                 <div key={ id } className="col s3">
                   <div className="card">
                     <div className="card-image">
-                        <img src={ `${thumbnail.path}.${thumbnail.extension}` } alt="Character picture"/>
+                        <img src={ `${thumbnail.path}.${thumbnail.extension}`.replace('http://', 'https://') } alt="Character picture"/>
                     </div>
                     <div className="card-content">
                         <h4> { title }</h4>
