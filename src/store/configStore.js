@@ -3,7 +3,8 @@ import charactersReducer from '../reducers/characters.reducer';
 import comicsReducer from '../reducers/comics.reducer';
 import eventsReducer from '../reducers/events.reducer';
 import seriesReducer from '../reducers/series.reducer';
-import filterReducer from '../reducers/filters.reducer'
+import filterReducer from '../reducers/filters.reducer';
+import fightReducer from '../reducers/fight.reducer';
 import thunk from 'redux-thunk';
 
 
@@ -14,7 +15,8 @@ export default () => {
       comics: comicsReducer,
       events: eventsReducer,
       series: seriesReducer,
-      filters: filterReducer
+      filters: filterReducer,
+      fight: fightReducer
     }),
     compose(
       applyMiddleware(thunk),

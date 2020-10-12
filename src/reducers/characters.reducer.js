@@ -15,6 +15,11 @@ const characterReducer =  (state = charactersDefault, action) => {
                 ...state,
                 action.characterInfo
             ]
+        case 'FETCH_RANDOM_CHARACTER':
+            return [
+                ...state,
+                action.randomCharacter
+            ]
         default:
             return state
     }

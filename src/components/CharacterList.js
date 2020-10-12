@@ -9,6 +9,7 @@ import Loading from './Loading';
 
 class CharacterList extends Component {
     componentDidMount() {
+      this.props.unmountCharacters()
       this.props.getCharacters(this.props.filters)
     }
     componentWillUnmount() {

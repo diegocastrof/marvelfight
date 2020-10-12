@@ -1,6 +1,6 @@
 // Filter reducer
 const filterDefault = {
-  text: ''
+  text: '',
 }
 
 const filterReducer = ((state = filterDefault, action) => {
