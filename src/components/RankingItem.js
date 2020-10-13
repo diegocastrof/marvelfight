@@ -1,7 +1,6 @@
 import React from 'react';
 
 const RankingItem = (props) => {
-  console.log(props)
   const { name, thumbnail, comics, events, series, ranking} = props
   return (
     <div>

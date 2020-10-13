@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getRandomCharacters, unmountCharacters } from '../actions/characters.actions';
+import { getCharacterByOffset, unmountCharacters } from '../actions/characters.actions';
 import { setFightNumberFilter, setIsFetching } from '../actions/fight.actions';
 
 class FightFilter extends Component {
   handleSubmit = (e) =>{
     e.preventDefault()
-    if (!this.props.fight.fightNum) {
+    const numberOfFights = this.props.fight.fightNum;
+    if (!numberOfFights) {
       alert('Enter a valid number to start')
     } else {
       this.props.dispatch(setIsFetching(true))
       this.props.dispatch(unmountCharacters())
-      for (let i = 0; i < this.props.fight.fightNum *2 ; i++ ) {
-        this.props.dispatch(getRandomCharacters())
+      const fightersOffsetArr = [];
+      const totalCharacters = 1492;
+      while (fightersOffsetArr.length < numberOfFights *2) {
+        let randomCharacterOffset = Math.floor(Math.random() * totalCharacters) + 1;
+        fightersOffsetArr.includes(randomCharacterOffset) ? undefined : fightersOffsetArr.push(randomCharacterOffset)
       }
+      fightersOffsetArr.forEach(offset => this.props.dispatch(getCharacterByOffset(offset)))
     }
   }
   render() {

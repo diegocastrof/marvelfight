@@ -1,7 +1,7 @@
 // Filter reducer
 const filterDefault = {
   text: '',
-  filterWinner: false,
+  filterWinner: true,
   filterLoser: false,
   sortBy: 'comics'          // comics, events, or series
 }

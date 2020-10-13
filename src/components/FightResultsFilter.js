@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getRandomCharacters, unmountCharacters } from '../actions/characters.actions';
 import { setFightNumberFilter, setFinishFetching, setIsFetching } from '../actions/fight.actions';
 import { setTextFilter, setWinnerFilter, setLoserFilter, sortByComics, sortByEvents, sortBySeries } from '../actions/filters.actions'
 
@@ -11,7 +10,10 @@ class FightResultsFilter extends Component {
   }
   componentWillUnmount() {
     this.props.dispatch(setTextFilter())
-    this.props.dispatch(setFinishFetching(false))
+    this.props.dispatch(setFinishFetching(false));
+    this.props.dispatch(setWinnerFilter(true));
+    this.props.dispatch(setLoserFilter(false));
+    this.props.dispatch(sortByComics());
   }
   render() {
     return (
@@ -21,6 +23,7 @@ class FightResultsFilter extends Component {
           <input 
             type="text"
             value={ this.props.filters.text }
+            placeholder="Filter text here"
             onChange={ (e) => { 
               this.props.dispatch(setTextFilter(e.target.value)) 
             }}
@@ -28,6 +31,7 @@ class FightResultsFilter extends Component {
           <label>
               <input 
                 type="checkbox"
+                checked={ this.props.filters.filterWinner }
                 onChange={ (e) => e.target.checked ? this.props.dispatch(setWinnerFilter(true)) : this.props.dispatch(setWinnerFilter(false)) } 
               />
               <span>Winner</span>
@@ -35,6 +39,7 @@ class FightResultsFilter extends Component {
           <label>
               <input 
                 type="checkbox"
+                checked={ this.props.filters.filterLoser }
                 onChange={ (e) => e.target.checked ? this.props.dispatch(setLoserFilter(true)) : this.props.dispatch(setLoserFilter(false)) } 
               />
               <span>Losers</span>

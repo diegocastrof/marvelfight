@@ -13,9 +13,9 @@ const getVisibleFighters = ({ winners, losers }, { text, sortBy, filterWinner, f
       return a.comics.available > b.comics.available ? -1 : 1
     } else if (sortBy === 'events') {
       return a.events.available > b.events.available ? -1 : 1
-    } else {
+    } else if (sortBy === 'series') {
       return a.series.available > b.series.available ? -1 : 1
-    }
+    } else return -1
   })
 }
 

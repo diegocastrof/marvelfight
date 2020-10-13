@@ -32,10 +32,8 @@ export const getCharacterById = (id) => {
     }
 }
 
-export const getRandomCharacters = () => {
-    const totalCharacters = 1492;
-    const randomCharacterOffset = Math.floor(Math.random() * (totalCharacters+1));
-    const url = `https://gateway.marvel.com/v1/public/characters?limit=1&offset=${randomCharacterOffset}&ts=1&apikey=919522bcad87d0714bd2704328098fa4&hash=c12ced18fd3a3e9155dfdf66c3885377`       
+export const getCharacterByOffset = (offset) => {
+    const url = `https://gateway.marvel.com/v1/public/characters?limit=1&offset=${offset}&ts=1&apikey=919522bcad87d0714bd2704328098fa4&hash=c12ced18fd3a3e9155dfdf66c3885377`       
     return (dispatch) => {
         fetch(url)
             .then(res => res.json())
@@ -47,7 +45,3 @@ export const getRandomCharacters = () => {
             })
     }
 }
-
-export const unmountCharacter = () => ({ 
-    type: 'UNMOUNT_CHARACTER'
-})
