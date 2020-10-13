@@ -32,9 +32,10 @@ class FightRanking extends Component {
             { this.state.showRanking && 
             <ul className="collection">
               {
-                this.props.visibleFighters.map((fighter, index) => (    
-                  <RankingItem key={fighter.id} {...fighter} ranking={index+1} />
-                ))
+                this.props.visibleFighters.length === 0 ? <li className="collection-item align-center"> No results </li> : 
+                  this.props.visibleFighters.map((fighter, index) => (    
+                    <RankingItem key={fighter.id} {...fighter} ranking={index+1} />
+                  ))
               }
             </ul>
             }

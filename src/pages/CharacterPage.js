@@ -26,14 +26,22 @@ class CharacterPage extends Component {
   }
   render() {
     if (this.props.characterInfo) {
-      const { name, thumbnail, comics, events, series } = this.props.characterInfo
+      const { name, description, thumbnail, comics, events, series } = this.props.characterInfo
       let img_url = `${thumbnail.path}.${thumbnail.extension}`
       img_url = img_url.replace('http://', 'https://')
       return (
         <div className="container">
             <h1 className="center-align red-text text-lighten-3">{ name }</h1>
-            <img src={img_url} className="materialboxed center-align" width="500" alt="Character picture"/>
-                
+            <img src={img_url} className="materialboxed center-align responsive-img" width="500" alt="Character picture"/>
+            {
+              !description ? 
+              <p className="card-description"> 
+                <blockquote>There's no description for { name } </blockquote>
+              </p> :
+              <p className="card-description">
+                <blockquote>{ description }</blockquote>
+              </p>
+            }
             <ItemsView title={'Comics'} items={ this.props.comics } />
             <ItemsView title={'Events'} items={ this.props.events } />
             <ItemsView title={'Series'} items={ this.props.series } />

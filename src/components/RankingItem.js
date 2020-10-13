@@ -11,7 +11,9 @@ const RankingItem = (props) => {
           Events: {events.available}  <br/>
           Series: {events.available}
         </p>
-        <p className="secondary-content"><i className="material-icons">{ranking}</i></p>
+        <p className="secondary-content">
+          <p className="ranking-result">{ ranking }</p>
+        </p>
       </li>
     </div>
   )

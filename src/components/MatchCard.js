@@ -26,7 +26,7 @@ class MatchCard extends Component {
         <br/>
         <div className="row">
           {/* Fighter One Card */}
-          <div className="col s12 m5">
+          <div className="col s8 m5">
             <div className="card horizontal red lighten-5">
               <div className="card-image">
                 <img className="circle" src={`${fighterOne.thumbnail.path}.${fighterOne.thumbnail.extension}`.replace('http://', 'https://')}/>
@@ -40,7 +40,7 @@ class MatchCard extends Component {
                     <h2 className="match-result green-text text-lighten-1">WINNER</h2> :
                     <h2 className="match-result red-text text-darken-2">LOSER</h2>
                   }
-                  <p>
+                  <p className="match-results-stats">
                     Comics: {fighterOne.comics.available} <br/>
                     Events: {fighterOne.comics.available}  <br/>
                     Series: {fighterOne.comics.available} <br/>
@@ -50,13 +50,13 @@ class MatchCard extends Component {
             </div>
           </div>          
  
-          <div className="col m2">
+          <div className="col s2">
             <div className="vs_container">
               <img className="vs_img" src="./imgs/versus.png" alt=""/>
             </div>
           </div>
           {/* Fighter Two Card */}
-          <div className="col s12 m5">
+          <div className="col s8 m5">
             <div className="card horizontal red lighten-5">
               <div className="card-image">
                 <img className="circle" src={`${fighterTwo.thumbnail.path}.${fighterTwo.thumbnail.extension}`.replace('http://', 'https://')}/>
@@ -70,7 +70,7 @@ class MatchCard extends Component {
                     <h2 className="match-result green-text text-lighten-1">WINNER</h2> :
                     <h2 className="match-result red-text text-darken-2">LOSER</h2>
                   }
-                  <p>
+                  <p className="match-results-stats">
                     Comics: {fighterTwo.comics.available} <br/>
                     Events: {fighterTwo.comics.available}  <br/>
                     Series: {fighterTwo.comics.available} <br/>

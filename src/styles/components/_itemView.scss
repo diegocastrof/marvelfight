@@ -1,0 +1,14 @@
+.item-view-content {
+	font-size: 2rem;
+}
+
+@media (max-witdh: 650px) {
+	.item-view-content {
+		font-size: 1.5rem;
+	}
+}
+@media (max-witdh: 400px) {
+	.item-view-content {
+		font-size: 1rem;
+	}
+}

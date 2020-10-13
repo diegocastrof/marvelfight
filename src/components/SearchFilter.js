@@ -9,6 +9,10 @@ class SearchFilter extends Component {
     e.preventDefault()
     this.props.dispatch(unmountCharacters())
     this.props.dispatch(getCharacters(this.props.filters))
+  }
+  handleClear = (e) =>{
+    e.preventDefault()
+    this.props.dispatch(unmountCharacters())
     this.props.dispatch(setTextFilter(''))
   }
   render() {
@@ -17,7 +21,7 @@ class SearchFilter extends Component {
         <div className="row">
           <form className="col s12">
             <div className="container">
-              <div className="input-fiel col s10">
+              <div className="input-fiel col s4 m8">
                 <input 
                   type="text" 
                   value={ this.props.filters.text }
@@ -27,12 +31,20 @@ class SearchFilter extends Component {
                   }}
                 />
               </div>
-              <div className="col s2">
+              <div className="col s4 m2">
                 <button
                   className="waves-effect waves-light btn-small red lighten-2"
                   onClick={ this.handleSearch }
                 >
                   Search
+                </button>
+              </div>
+              <div className="col s4 m2">
+                <button
+                  className="waves-effect waves-light btn-small green lighten-2"
+                  onClick={ this.handleClear }
+                >
+                  Clear
                 </button>
               </div>
             </div>

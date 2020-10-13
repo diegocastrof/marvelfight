@@ -1,8 +1,47 @@
-.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
-  color: $color-main;
+.card__title {
+	margin-top: 0;
+	font-weight: 700;
+
+	& a {
+		transition: 0.2s;
+		&:hover {
+			color: $color-main;
+		}
+	}
 }
 
-.card__title {
-  margin-top: 0;
-  font-weight: 700;
+.card-container {
+	min-height: 40rem;
+	font-size: 1.6rem;
+}
+
+.card-image {
+	height: 25rem;
+	width: 100%;
+}
+.card-image__img {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+	margin: auto;
+}
+
+@media (max-width: 1200px) {
+	.card {
+		font-size: 1.4rem;
+	}
+}
+@media (max-width: 650px) {
+	.characterList-title {
+		font-size: 3rem;
+	}
+	.card-container {
+		max-height: 100%;
+	}
+	.card-image {
+		height: 100%;
+	}
+	.card-title a {
+		font-size: 1.6rem;
+	}
 }

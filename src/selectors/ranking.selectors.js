@@ -1,10 +1,14 @@
 const getVisibleFighters = ({ winners, losers }, { text, sortBy, filterWinner, filterLoser }) => {
   let filteredFighters = [];
-  if (filterWinner && filterLoser || !filterWinner && !filterLoser) {
+  if (filterWinner && filterLoser) {
     filteredFighters = [...winners, ...losers];
   } else if (filterWinner) {
     filteredFighters = [...winners];
-  } else { filteredFighters = [...losers]}
+  } else if (filterLoser) { 
+    filteredFighters = [...losers];
+  } else {
+    filteredFighters =[];
+  }
 
   filteredFighters = filteredFighters.filter(fighter => fighter.name.toLowerCase().includes(text.toLowerCase()));
 

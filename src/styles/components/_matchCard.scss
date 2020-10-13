@@ -30,3 +30,16 @@
 	margin: 0;
 	margin-bottom: 1rem;
 }
+
+.horizontal .card-image {
+	height: 100%;
+}
+
+@media (max-width: 950px) {
+	.match-results-stats {
+		display: none;
+	}
+	.card-content {
+		font-size: 2rem;
+	}
+}

@@ -19,43 +19,64 @@ class FightResultsFilter extends Component {
     return (
       <div>
         <div className="container">
-          <h2 className="center-align red-text text-lighten-3">Let's check the results...</h2>
-          <input 
-            type="text"
-            value={ this.props.filters.text }
-            placeholder="Filter text here"
-            onChange={ (e) => { 
-              this.props.dispatch(setTextFilter(e.target.value)) 
-            }}
-          />
-          <label>
+          
+          <div className="row">
+            <h2 className="center-align red-text text-lighten-3">Let's check the results...</h2>
+            
+            <div className="col s6">
               <input 
-                type="checkbox"
-                checked={ this.props.filters.filterWinner }
-                onChange={ (e) => e.target.checked ? this.props.dispatch(setWinnerFilter(true)) : this.props.dispatch(setWinnerFilter(false)) } 
+              type="text"
+              value={ this.props.filters.text }
+              placeholder="Filter text here"
+              onChange={ (e) => { 
+                this.props.dispatch(setTextFilter(e.target.value)) 
+              }}
               />
-              <span>Winner</span>
-          </label>
-          <label>
-              <input 
-                type="checkbox"
-                checked={ this.props.filters.filterLoser }
-                onChange={ (e) => e.target.checked ? this.props.dispatch(setLoserFilter(true)) : this.props.dispatch(setLoserFilter(false)) } 
-              />
-              <span>Losers</span>
-          </label>
-          <select 
-            className="browser-default"
-            value={ this.props.filters.sortBy }
-            onChange = { (e) => { 
-              (e.target.value) === 'comics' ? this.props.dispatch(sortByComics()) : 
-              (e.target.value) === 'events' ? this.props.dispatch(sortByEvents()) : this.props.dispatch(sortBySeries())
-            }}
-          >
-            <option value="comics">Comics</option>
-            <option value="events">Events</option>
-            <option value="series">Series</option>
-          </select>
+            </div>
+            
+            <div className="col s6">
+              <select 
+                className="browser-default"
+                value={ this.props.filters.sortBy }
+                onChange = { (e) => { 
+                  (e.target.value) === 'comics' ? this.props.dispatch(sortByComics()) : 
+                  (e.target.value) === 'events' ? this.props.dispatch(sortByEvents()) : this.props.dispatch(sortBySeries())
+                }}
+              >
+                <option value="comics">Comics</option>
+                <option value="events">Events</option>
+                <option value="series">Series</option>
+              </select>
+            </div>
+            <div className="col s12">
+              <div className="row">
+                <div className="col s6">
+                  <label>
+                    <input 
+                      type="checkbox"
+                      checked={ this.props.filters.filterWinner }
+                      onChange={ (e) => e.target.checked ? this.props.dispatch(setWinnerFilter(true)) : this.props.dispatch(setWinnerFilter(false)) } 
+                    />
+                      <span>Winner</span>
+                  </label>
+                </div>
+                <div className="col s6">
+                  <label>
+                    <input 
+                      type="checkbox"
+                      checked={ this.props.filters.filterLoser }
+                      onChange={ (e) => e.target.checked ? this.props.dispatch(setLoserFilter(true)) : this.props.dispatch(setLoserFilter(false)) } 
+                    />
+                    <span>Losers</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+
+
         </div>
       </div>
     )
