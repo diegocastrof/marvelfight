@@ -7,8 +7,13 @@ import { setTextFilter } from '../actions/filters.actions';
 class SearchFilter extends Component {
   handleSearch = (e) =>{
     e.preventDefault()
-    this.props.dispatch(unmountCharacters())
-    this.props.dispatch(getCharacters(this.props.filters))
+    if (this.props.filters.text) {
+      this.props.dispatch(unmountCharacters())
+      this.props.dispatch(getCharacters(this.props.filters))
+    } else {
+      alert('Enter the name of a Hero')
+    }
+
   }
   handleClear = (e) =>{
     e.preventDefault()

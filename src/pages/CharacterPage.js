@@ -9,6 +9,7 @@ import { getSeriesById, unmountSeries } from '../actions/series.actions';
 
 import Loading from '../components/Loading';
 import ItemsView from '../components/ItemsView';
+import ItemModal from '../components/ItemModal';
 
 class CharacterPage extends Component {
   componentDidMount() {
@@ -30,22 +31,22 @@ class CharacterPage extends Component {
       let img_url = `${thumbnail.path}.${thumbnail.extension}`
       img_url = img_url.replace('http://', 'https://')
       return (
-        <div className="container">
-            <h1 className="center-align red-text text-lighten-3">{ name }</h1>
-            <img src={img_url} className="materialboxed center-align responsive-img" width="500" alt="Character picture"/>
-            {
-              !description ? 
-              <p className="card-description"> 
-                <blockquote>There's no description for { name } </blockquote>
-              </p> :
-              <p className="card-description">
-                <blockquote>{ description }</blockquote>
-              </p>
-            }
-            <ItemsView title={'Comics'} items={ this.props.comics } />
-            <ItemsView title={'Events'} items={ this.props.events } />
-            <ItemsView title={'Series'} items={ this.props.series } />
+        <div>
+          <div className="container">
+              <h1 className="center-align red-text text-lighten-3">{ name }</h1>
+              <img src={img_url} className="materialboxed center-align responsive-img" width="500" alt="Character picture"/>
+              {
+                !description ? 
+                  <blockquote>There's no description for { name } </blockquote> :
+                  <blockquote>{ description }</blockquote>
+              }
+              <ItemsView title={'Comics'} items={ this.props.comics } />
+              <ItemsView title={'Events'} items={ this.props.events } />
+              <ItemsView title={'Series'} items={ this.props.series } />
+          </div>
+          <ItemModal />
         </div>
+
         )
     } else return (
       <Loading />

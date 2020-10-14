@@ -1,5 +1,14 @@
 .item-view-content {
-	font-size: 2rem;
+	font-size: 1.5rem;
+}
+.item-view-content .card__title {
+	cursor: pointer;
+	font-size: 1.8rem;
+
+	& a {
+		color: #ef9a9a;
+		margin-bottom: 1.5rem;
+	}
 }
 
 @media (max-witdh: 650px) {

@@ -39,7 +39,7 @@ class FightList extends Component {
               className="waves-effect waves-light btn-small red lighten-2"
               onClick={ this.handleReset }
             >
-              Battle Again!
+              Battle Again
             </button>
             <br/>
             <br/>
